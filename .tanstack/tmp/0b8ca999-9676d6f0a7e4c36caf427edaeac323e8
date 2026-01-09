@@ -1,5 +1,6 @@
-import { Header } from 'alamra-website/components/layout/header'
-import { Footer } from 'alamra-website/components/layout/footer'
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
+import { createFileRoute } from '@tanstack/react-router'
 
 export const metadata = {
   title: 'About Us - Alamra Embroidery',
@@ -7,7 +8,16 @@ export const metadata = {
 }
 
 
-export default function AboutPage() {
+export const Route = createFileRoute("/about")({
+  component: About,
+  meta: () => [
+    {
+      title: 'Products - Alamra Embroidery',
+    },
+  ],
+})
+
+function About(){
   return (
     <main className="min-h-screen">
       <Header />

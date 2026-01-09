@@ -1,7 +1,5 @@
-import { Header } from 'alamra-website/components/layout/header'
-import { Footer } from 'alamra-website/components/layout/footer'
-import { ProductDetail } from 'alamra-website/components/sections/product-detail'
-import { notFound } from 'next/navigation'
+import { createFileRoute, notFound } from '@tanstack/react-router'
+import { ProductDetail } from '@/components/sections/product-detail'
 
 const products = [
   {
@@ -51,45 +49,23 @@ const products = [
   },
 ]
 
-interface Props {
-  params: {
-    productId: string
-  }
-}
-
-export async function generateStaticParams() {
-  return products.map((product) => ({
-    productId: product.id,
-  }))
-}
-
-export function generateMetadata({ params }: Props) {
-  const product = products.find(p => p.id === params.productId)
-  
-  if (!product) {
-    return {
-      title: 'Product Not Found - Alamra Embroidery'
+export const Route = createFileRoute('/products/$productId')({
+  component: ProductPage,
+  loader: ({ params }) => {
+    const product = products.find(p => p.id === params.productId)
+    if (!product) {
+      throw notFound()
     }
-  }
+    return { product }
+  },
+})
 
-  return {
-    title: `${product.name} - Alamra Embroidery`,
-    description: product.description,
-  }
-}
-
-export default function ProductPage({ params }: Props) {
-  const product = products.find(p => p.id === params.productId)
-
-  if (!product) {
-    notFound()
-  }
+function ProductPage() {
+  const { product } = Route.useLoaderData()
 
   return (
     <main className="min-h-screen">
-      <Header />
       <ProductDetail product={product} />
-      <Footer />
     </main>
   )
 }

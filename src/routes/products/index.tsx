@@ -1,17 +1,13 @@
-import { Header } from 'alamra-website/components/layout/header'
-import { Footer } from 'alamra-website/components/layout/footer'
-import { ProductsGrid } from 'alamra-website/components/sections/products-grid'
+import { createFileRoute } from '@tanstack/react-router'
+import { ProductsGrid } from '@/components/sections/products-grid'
 
-export const metadata = {
-  title: 'Products - Alamra Embroidery',
-  description: 'Browse our collection of premium custom embroidery, badges, and precision crafted pieces.',
-}
+export const Route = createFileRoute('/products/')({
+  component: ProductsPage,
+})
 
-export default function ProductsPage() {
+function ProductsPage() {
   return (
     <main className="min-h-screen">
-      <Header />
-      
       <section className="py-20 bg-gray-50 pt-32">
         <div className="container-custom section-padding">
           <div className="text-center mb-16">
@@ -23,12 +19,9 @@ export default function ProductsPage() {
               each crafted with meticulous attention to detail.
             </p>
           </div>
-          
           <ProductsGrid />
         </div>
       </section>
-      
-      <Footer />
     </main>
   )
 }

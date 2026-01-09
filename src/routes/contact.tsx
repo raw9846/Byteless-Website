@@ -1,14 +1,16 @@
-import { Header } from 'alamra-website/components/layout/header'
-import { Footer } from 'alamra-website/components/layout/footer'
-import { ContactSection } from 'alamra-website/components/sections/contact-section'
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
+import { ContactSection } from '@/components/sections/contact-section'
+import { createFileRoute } from '@tanstack/react-router'
 
 export const metadata = {
   title: 'Contact Us - Alamra Embroidery',
   description: 'Get in touch with Alamra Embroidery for custom quotes and inquiries about our premium embroidery services.',
 }
 
-export default function ContactPage() {
-  return (
+export const Route = createFileRoute("/contact")({
+
+    component : () => (
     <main className="min-h-screen">
       <Header />
       
@@ -31,4 +33,4 @@ export default function ContactPage() {
       <Footer />
     </main>
   )
-}
+})

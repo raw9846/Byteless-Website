@@ -52,7 +52,7 @@ export function Header() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 hover:text-primary-500 font-medium"
+                  className={`${isScrolled ? "text-gray-900" : "text-white"} hover:text-primary-500 font-medium transition-colors duration-300`}
                   style={{ transition: 'color 0.2s ease' }}
                 >
                   {item.name}
