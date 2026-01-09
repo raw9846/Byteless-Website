@@ -1,7 +1,3 @@
-'use client'
-
-import Link from 'next/link'
-import Image from 'next/image'
 
 export function Footer() {
   return (
@@ -11,7 +7,7 @@ export function Footer() {
           {/* Logo and Description */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <Image 
+              <img 
                 src="/alamra.png" 
                 alt="Alamra Embroidery" 
                 width={50} 
@@ -35,24 +31,24 @@ export function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-300 hover:text-primary-400 transition-colors">
+                <a href="/" className="text-gray-300 hover:text-primary-400 transition-colors">
                   Home
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/products" className="text-gray-300 hover:text-primary-400 transition-colors">
+                <a href="/products" className="text-gray-300 hover:text-primary-400 transition-colors">
                   Products
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/about" className="text-gray-300 hover:text-primary-400 transition-colors">
+                <a href="/about" className="text-gray-300 hover:text-primary-400 transition-colors">
                   About
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-300 hover:text-primary-400 transition-colors">
+                <a href="/contact" className="text-gray-300 hover:text-primary-400 transition-colors">
                   Contact
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -78,12 +74,12 @@ export function Footer() {
             © {new Date().getFullYear()} Alamra Embroidery. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="/privacy" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
+            <a href="/privacy" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
               Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
+            </a>
+            <a href="/terms" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
               Terms of Service
-            </Link>
+            </a>
           </div>
         </div>
       </div>

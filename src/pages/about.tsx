@@ -47,7 +47,7 @@ export default function AboutPage() {
             <div className="relative h-96 bg-gray-200 rounded-lg overflow-hidden">
               {/* You can add an image here */}
               <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                <p>Workshop Image Placeholder</p>
+                <p>Workshop img Placeholder</p>
               </div>
             </div>
           </div>

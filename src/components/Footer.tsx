@@ -1,8 +1,4 @@
-'use client'
-
 import { motion } from 'framer-motion'
-import Image from 'next/image'
-import Link from 'next/link'
 import { Mail, Phone, MapPin } from 'lucide-react'
 
 const Footer = () => {
@@ -34,15 +30,15 @@ const Footer = () => {
             viewport={{ once: true }}
             className="lg:col-span-2"
           >
-            <Link href="/" className="flex items-center space-x-3 mb-6">
-              <Image
+            <a href="/" className="flex items-center space-x-3 mb-6">
+              <img
                 src="/alamra.png"
                 alt="Alamra"
                 width={40}
                 height={40}
                 className="w-10 h-10"
               />
-            </Link>
+            </a>
             
             <p className="text-ivory/80 mb-6 max-w-md leading-relaxed">
               Crafting exquisite embroidered pieces with traditional techniques and modern precision. 
@@ -76,12 +72,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link
+                  <a
                     href={link.href}
                     className="text-ivory/70 hover:text-gold transition-colors duration-300 text-sm"
                   >
                     {link.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -98,12 +94,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <Link
+                  <a
                     href={link.href}
                     className="text-ivory/70 hover:text-gold transition-colors duration-300 text-sm"
                   >
                     {link.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -123,12 +119,12 @@ const Footer = () => {
           </div>
           
           <div className="flex space-x-6 text-sm">
-            <Link href="/privacy" className="text-ivory/60 hover:text-gold transition-colors duration-300">
+            <a href="/privacy" className="text-ivory/60 hover:text-gold transition-colors duration-300">
               Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-ivory/60 hover:text-gold transition-colors duration-300">
+            </a>
+            <a href="/terms" className="text-ivory/60 hover:text-gold transition-colors duration-300">
               Terms of Service
-            </Link>
+            </a>
           </div>
         </motion.div>
       </div>

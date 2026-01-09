@@ -1,6 +1,5 @@
-import { Header } from 'alamra-website/components/layout/header'
-import { Footer } from 'alamra-website/components/layout/footer'
-import Link from 'next/link'
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
 
 export default function NotFound() {
   return (
@@ -21,12 +20,12 @@ export default function NotFound() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/" className="btn-primary">
+            <a href="/" className="btn-primary">
               Go Home
-            </Link>
-            <Link href="/products" className="btn-outline">
+            </a>
+            <a href="/products" className="btn-outline">
               View Products
-            </Link>
+            </a>
           </div>
         </div>
       </section>

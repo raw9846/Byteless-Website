@@ -1,9 +1,5 @@
-'use client'
-
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
 
 const featuredProducts = [
   {
@@ -88,14 +84,13 @@ export function FeaturedWork() {
               onMouseEnter={() => setHoveredProduct(product.id)}
               onMouseLeave={() => setHoveredProduct(null)}
             >
-              <Link href={`/products/${product.id}`}>
+              <a href={`/products/${product.id}`}>
                 <div className="card card-hover">
-                  {/* Image Container */}
+                  {/* img Container */}
                   <div className="relative h-80 overflow-hidden">
-                    <Image
+                    <img
                       src={product.image}
                       alt={product.name}
-                      fill
                       className={`object-cover transition-transform duration-700 ${
                         hoveredProduct === product.id ? 'scale-110' : 'scale-100'
                       }`}
@@ -147,7 +142,7 @@ export function FeaturedWork() {
                     </p>
                   </div>
                 </div>
-              </Link>
+              </a>
             </motion.div>
           ))}
         </motion.div>
@@ -159,9 +154,9 @@ export function FeaturedWork() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Link href="/products" className="btn-primary text-lg">
+          <a href="/products" className="btn-primary text-lg">
             View All Work
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>

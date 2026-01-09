@@ -1,8 +1,4 @@
-'use client'
-
 import { useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
 
 const products = [
   {
@@ -63,17 +59,16 @@ export function ProductsGrid() {
       {/* Products Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProducts.map((product) => (
-          <Link key={product.id} href={`/products/${product.id}`}>
+          <a key={product.id} href={`/products/${product.id}`}>
             <div 
               className="card card-hover h-full flex flex-col"
               onMouseEnter={() => setHoveredProduct(product.id)}
               onMouseLeave={() => setHoveredProduct(null)}
             >
               <div className="relative h-64 overflow-hidden">
-                <Image
+                <img
                   src={product.image}
                   alt={product.name}
-                  fill
                   className={`object-cover transition-transform duration-500 ${
                     hoveredProduct === product.id ? 'scale-110' : 'scale-100'
                   }`}
@@ -112,7 +107,7 @@ export function ProductsGrid() {
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
         ))}
       </div>
     </div>

@@ -1,10 +1,8 @@
-'use client'
 
 import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Image from 'next/image'
-import Link from 'next/link'
+
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -38,36 +36,35 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center justify-between py-4 md:h-16 md:py-0">
             {/* Logo */}
-            <Link href="/" className="flex items-center flex-shrink-0">
-              <Image
+            <a href="/" className="flex items-center flex-shrink-0">
+              <img
                 src={isScrolled ? "/logo-black.png" : "/alamra.png"}
                 alt="Alamra"
                 width={48}
                 height={48}
                 className="w-12 h-12"
-                priority
               />
-            </Link>
+            </a>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
-                <Link
+                <a
                   key={item.name}
                   href={item.href}
                   className="text-gray-700 hover:text-primary-500 font-medium"
                   style={{ transition: 'color 0.2s ease' }}
                 >
                   {item.name}
-                </Link>
+                </a>
               ))}
-              <Link
+              <a
                 href="/contact"
                 className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-lg font-medium"
                 style={{ transition: 'background-color 0.2s ease' }}
               >
                 Get Quote
-              </Link>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -91,7 +88,7 @@ export function Header() {
               >
                 <div className="py-4 space-y-4">
                   {navItems.map((item) => (
-                    <Link
+                    <a
                       key={item.name}
                       href={item.href}
                       onClick={() => setIsMobileMenuOpen(false)}
@@ -99,16 +96,16 @@ export function Header() {
                       style={{ transition: 'color 0.2s ease' }}
                     >
                       {item.name}
-                    </Link>
+                    </a>
                   ))}
-                  <Link
+                  <a
                     href="/contact"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-lg font-medium inline-block"
                     style={{ transition: 'background-color 0.2s ease' }}
                   >
                     Get Quote
-                  </Link>
+                  </a>
                 </div>
               </motion.div>
             )}

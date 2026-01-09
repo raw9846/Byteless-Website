@@ -1,8 +1,5 @@
-'use client'
-
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
-import Link from 'next/link'
 
 const Hero = () => {
   return (
@@ -53,12 +50,12 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <Link href="#work" className="btn-primary text-lg px-10 py-4">
+              <a href="#work" className="btn-primary text-lg px-10 py-4">
                 View Our Work
-              </Link>
-              <Link href="#about" className="btn-secondary text-lg px-10 py-4 bg-transparent border-ivory text-ivory hover:bg-ivory hover:text-navy">
+              </a>
+              <a href="#about" className="btn-secondary text-lg px-10 py-4 bg-transparent border-ivory text-ivory hover:bg-ivory hover:text-navy">
                 Our Story
-              </Link>
+              </a>
             </motion.div>
           </motion.div>
         </div>
@@ -71,7 +68,7 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1 }}
       >
-        <Link href="#work" className="flex flex-col items-center text-ivory/70 hover:text-gold transition-colors">
+        <a href="#work" className="flex flex-col items-center text-ivory/70 hover:text-gold transition-colors">
           <span className="text-sm mb-2 font-medium">Scroll to explore</span>
           <motion.div
             animate={{ y: [0, 10, 0] }}
@@ -79,7 +76,7 @@ const Hero = () => {
           >
             <ChevronDown size={24} />
           </motion.div>
-        </Link>
+        </a>
       </motion.div>
     </section>
   )

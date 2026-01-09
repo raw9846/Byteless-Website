@@ -1,8 +1,4 @@
-'use client'
-
 import { Typography, Card, CardBody, Chip, Button } from '@material-tailwind/react'
-import Image from 'next/image'
-import Link from 'next/link'
 
 interface Product {
   id: string
@@ -31,16 +27,16 @@ export function ProductDetail({ product }: Props) {
             onPointerEnterCapture={() => {}}
             onPointerLeaveCapture={() => {}}
           >
-            <Link href="/" className="hover:text-amber-600">Home</Link>
+            <a href="/" className="hover:text-amber-600">Home</a>
             {' > '}
-            <Link href="/products" className="hover:text-amber-600">Products</Link>
+            <a href="/products" className="hover:text-amber-600">Products</a>
             {' > '}
             <span className="text-blue-gray-900">{product.name}</span>
           </Typography>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* Product Image */}
+          {/* Product img */}
           <div className="relative">
             <Card 
               className="overflow-hidden shadow-2xl"
@@ -49,10 +45,9 @@ export function ProductDetail({ product }: Props) {
               onPointerLeaveCapture={() => {}}
             >
               <div className="relative h-96 lg:h-[500px]">
-                <Image
+                <img
                   src={product.image}
                   alt={product.name}
-                  fill
                   className="object-cover"
                 />
                 <div className="absolute top-4 left-4">
@@ -120,7 +115,7 @@ export function ProductDetail({ product }: Props) {
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
-                <Link href="/contact">Request Custom Quote</Link>
+                <a href="/contact">Request Custom Quote</a>
               </Button>
               <Button
                 variant="outlined"
@@ -130,7 +125,7 @@ export function ProductDetail({ product }: Props) {
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
-                <Link href="/products">View All Products</Link>
+                <a href="/products">View All Products</a>
               </Button>
             </div>
           </div>

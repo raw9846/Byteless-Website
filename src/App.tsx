@@ -1,8 +1,8 @@
-import { Header } from '@/components/layout/header'
+import { Header } from '@/components/layout/Header'
 import { Hero } from '@/components/sections/hero'
 import { FeaturedWork } from '@/components/sections/featured-work'
 import { ContactSection } from '@/components/sections/contact-section'
-import { Footer } from '@/components/layout/footer'
+import { Footer } from '@/components/layout/Footer'
 
 export default function App() {
   return (

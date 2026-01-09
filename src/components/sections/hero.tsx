@@ -1,8 +1,5 @@
-'use client'
-
 import { motion } from 'framer-motion'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link'
 
 export function Hero() {
   return (
@@ -42,12 +39,12 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <Link href="/products" className="btn-primary text-lg px-10 py-4">
+            <a href="/products" className="btn-primary text-lg px-10 py-4">
               Discover Our Work
-            </Link>
-            <Link href="/about" className="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-gray-900 text-lg px-10 py-4">
+            </a>
+            <a href="/about" className="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-gray-900 text-lg px-10 py-4">
               Our Story
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
       </div>
@@ -59,7 +56,7 @@ export function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1 }}
       >
-        <Link href="#featured" className="flex flex-col items-center text-white/70 hover:text-primary-400 transition-colors">
+        <a href="#featured" className="flex flex-col items-center text-white/70 hover:text-primary-400 transition-colors">
           <span className="text-sm mb-2 font-medium">Scroll to explore</span>
           <motion.div
             animate={{ y: [0, 10, 0] }}
@@ -67,7 +64,7 @@ export function Hero() {
           >
             <ChevronDownIcon className="h-6 w-6" />
           </motion.div>
-        </Link>
+        </a>
       </motion.div>
     </section>
   )

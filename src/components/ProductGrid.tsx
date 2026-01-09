@@ -1,9 +1,5 @@
-'use client'
-
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
 
 interface Product {
   id: string
@@ -129,14 +125,13 @@ const ProductGrid = () => {
               onMouseEnter={() => setHoveredProduct(product.id)}
               onMouseLeave={() => setHoveredProduct(null)}
             >
-              <Link href={`/products/${product.id}`}>
+              <a href={`/products/${product.id}`}>
                 <div className="relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500">
-                  {/* Image Container */}
+                  {/* img Container */}
                   <div className="relative h-80 overflow-hidden">
-                    <Image
+                    <img
                       src={product.image}
                       alt={product.name}
-                      fill
                       className={`object-cover transition-transform duration-700 ${
                         hoveredProduct === product.id ? 'scale-110' : 'scale-100'
                       }`}
@@ -188,7 +183,7 @@ const ProductGrid = () => {
                     </p>
                   </div>
                 </div>
-              </Link>
+              </a>
             </motion.div>
           ))}
         </motion.div>
@@ -207,9 +202,9 @@ const ProductGrid = () => {
           <p className="text-navy/70 mb-8 max-w-2xl mx-auto">
             Let us bring your vision to life with our expert craftsmanship and attention to detail.
           </p>
-          <Link href="#contact" className="btn-primary text-lg">
+          <a href="#contact" className="btn-primary text-lg">
             Start Your Project
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>
