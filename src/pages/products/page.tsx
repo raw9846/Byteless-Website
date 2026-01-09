@@ -1,6 +1,6 @@
-import { Header } from '@/components/layout/header'
-import { Footer } from '@/components/layout/footer'
-import { ProductsGrid } from '@/components/sections/products-grid'
+import { Header } from 'alamra-website/components/layout/header'
+import { Footer } from 'alamra-website/components/layout/footer'
+import { ProductsGrid } from 'alamra-website/components/sections/products-grid'
 
 export const metadata = {
   title: 'Products - Alamra Embroidery',

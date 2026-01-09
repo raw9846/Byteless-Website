@@ -4,7 +4,7 @@ import { FeaturedWork } from '@/components/sections/featured-work'
 import { ContactSection } from '@/components/sections/contact-section'
 import { Footer } from '@/components/layout/footer'
 
-export default function HomePage() {
+export default function App() {
   return (
     <main className="min-h-screen">
       <Header />

@@ -1,6 +1,6 @@
-import { Header } from '@/components/layout/header'
-import { Footer } from '@/components/layout/footer'
-import { ProductDetail } from '@/components/sections/product-detail'
+import { Header } from 'alamra-website/components/layout/header'
+import { Footer } from 'alamra-website/components/layout/footer'
+import { ProductDetail } from 'alamra-website/components/sections/product-detail'
 import { notFound } from 'next/navigation'
 
 const products = [

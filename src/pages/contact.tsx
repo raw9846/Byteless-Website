@@ -1,6 +1,6 @@
-import { Header } from '@/components/layout/header'
-import { Footer } from '@/components/layout/footer'
-import { ContactSection } from '@/components/sections/contact-section'
+import { Header } from 'alamra-website/components/layout/header'
+import { Footer } from 'alamra-website/components/layout/footer'
+import { ContactSection } from 'alamra-website/components/sections/contact-section'
 
 export const metadata = {
   title: 'Contact Us - Alamra Embroidery',

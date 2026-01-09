@@ -1,5 +1,5 @@
-import { Header } from '@/components/layout/header'
-import { Footer } from '@/components/layout/footer'
+import { Header } from 'alamra-website/components/layout/header'
+import { Footer } from 'alamra-website/components/layout/footer'
 import Link from 'next/link'
 
 export default function NotFound() {
