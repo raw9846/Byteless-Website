@@ -6,6 +6,7 @@ import { Link } from '@tanstack/react-router'
 import { useMatches, useLocation } from '@tanstack/react-router'
 
 export function Header() {
+
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -18,6 +19,13 @@ export function Header() {
 
   const location = useLocation()
   const location_with_path_name = location.pathname + "#contact"
+    // This triggers every time the pathname changes, regardless of how fast you click
+  useEffect(() => {
+    // Only scroll to top if there is NO hash (like #contact) in the URL
+    if (!window.location.hash) {
+      window.scrollTo(0, 0)
+    }
+  }, [location.pathname])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -109,7 +117,7 @@ export function Header() {
                     </Link>
                   ))}
                   <Link
-                    to="/contact"
+                    to="/#contact"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-lg font-medium inline-block"
                     style={{ transition: 'background-color 0.2s ease' }}

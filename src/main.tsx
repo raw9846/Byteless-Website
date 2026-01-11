@@ -5,7 +5,7 @@ import { routeTree } from './routeTree.gen'
 import { HelmetProvider } from 'react-helmet-async'
 import './globals.css'
 // Create the router instance
-const router = createRouter({ routeTree })
+const router = createRouter({ routeTree, scrollRestoration: true })
 
 // Register the router for type safety
 declare module '@tanstack/react-router' {
