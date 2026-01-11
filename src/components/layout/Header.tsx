@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from '@tanstack/react-router'
-import { useMatches } from '@tanstack/react-router'
+import { useMatches, useLocation } from '@tanstack/react-router'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -15,6 +15,9 @@ export function Header() {
   const headerText = currentRoute?.staticData?.headerText ?? 'light'
 
   const isDarkText = headerText === 'dark'
+
+  const location = useLocation()
+  const location_with_path_name = location.pathname + "#contact"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +31,6 @@ export function Header() {
     { name: 'Home', href: '/' },
     { name: 'Portfolio', href: '/products' },
     { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
   ]
 
   return (
@@ -67,7 +69,7 @@ export function Header() {
                 </Link>
               ))}
               <Link
-                to="/contact"
+                to={location_with_path_name}
                 className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-lg font-medium"
                 style={{ transition: 'background-color 0.2s ease' }}
               >

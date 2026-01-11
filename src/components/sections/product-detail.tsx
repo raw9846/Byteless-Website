@@ -1,12 +1,17 @@
 import { Link } from '@tanstack/react-router'
 import {Slideshow} from '@/components/Slideshow'
 import Product from '@/types/Product'
+import { useLocation } from '@tanstack/react-router'
 
 interface Props {
   product: Product
 }
 
 export function ProductDetail({ product }: Props) {
+  const location = useLocation()
+  const location_with_path_name = location.pathname + "#contact"
+
+
   return (
     <section className="py-20 bg-gray-50 pt-32">
       <div className="container-custom section-padding">
@@ -71,9 +76,9 @@ export function ProductDetail({ product }: Props) {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contact" className="btn-primary">
+              <a href={location_with_path_name} className="btn-primary">
                 Request Custom Quote
-              </Link>
+              </a>
               <Link to="/products" className="btn-outline">
                 View All Products
               </Link>

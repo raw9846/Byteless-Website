@@ -3,6 +3,7 @@ import { Outlet, createRootRoute } from '@tanstack/react-router'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Link } from '@tanstack/react-router'
+import { ContactSection } from '@/components/sections/contact-section'
 
 export const Route = createRootRoute({
   component: Layout,
@@ -57,6 +58,9 @@ function Layout(){
     <>
       <Header />
       <Outlet />
+       <section id="contact">
+        <ContactSection />
+        </section>
       <Footer />
     </>
   )

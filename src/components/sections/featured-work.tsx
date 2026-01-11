@@ -17,12 +17,29 @@ const featuredProducts = [
     image: "/2.jpg",
     category: "University"
   },
-  {
-    id: "3",
-    name: "Corrections",
-    description: "Machined Badge for the Ontario Corrections Office",
-    image: "/3.jpg",
-    category: "Government"
+ {
+    id: "4",
+    name: "Legion",
+    description: "Bullion Crest Badge for the Royal Canadian Legion",
+    longDescription: "This government-grade badge for the Ontario Corrections Office demonstrates our capability to meet stringent official requirements. Built to withstand daily professional use while maintaining a distinguished appearance, this piece undergoes rigorous quality testing to ensure it meets all government specifications.",
+    images: [
+      "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/centered-in-frame-web.webp",
+      "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/closeup-45-angle-web.webp",
+      "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/detail-centered-web.webp",
+      "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/fit-45-angle-web.webp",
+      "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/right-shoulder-side-profile-web.webp",
+      "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/slight-angle-left-chest-web.webp",
+      "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/super-close-detail-web.webp",
+    ],
+    image: "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/centered-in-frame-web.webp",
+    category: "Government",
+    features: ["Official Specification", "Durable Construction", "Government Grade", "Quality Tested"],
+    specifications: {
+      "Dimensions": "4\" x 2.75\"",
+      "Materials": "Heavy-duty polyester, reinforced backing",
+      "Technique": "Machine embroidered",
+      "Finish": "Reinforced edges with secure attachment system"
+    }
   },
 ]
 
@@ -155,7 +172,8 @@ export function FeaturedWork() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Link to="/products" className="btn-primary text-lg">
+          <Link to="/products" className="btn-primary text-lg"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             View All Work
           </Link>
         </motion.div>
