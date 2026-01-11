@@ -1,15 +1,6 @@
 import { Link } from '@tanstack/react-router'
-
-interface Product {
-  id: string
-  name: string
-  description: string
-  longDescription: string
-  image: string
-  category: string
-  features: string[]
-  specifications: Record<string, string>
-}
+import {Slideshow} from '@/components/Slideshow'
+import Product from '@/types/Product'
 
 interface Props {
   product: Product
@@ -31,18 +22,24 @@ export function ProductDetail({ product }: Props) {
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Image */}
+         {/* Product img */}
           <div className="relative">
-            <div className="overflow-hidden rounded-xl shadow-lg bg-white">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-[400px] lg:h-[520px] object-cover"
-              />
-              <span className="absolute top-4 left-4 bg-primary-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                {product.category}
-              </span>
-            </div>
+            {product.images.length > 1 ? (
+              <Slideshow images={product.images} />
+            ) : (
+              <div className="overflow-hidden rounded-xl shadow-lg relative h-96 lg:h-[500px]">
+                <img
+                  src={product.images[0]}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
+                <span className="absolute top-4 left-4 bg-primary-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  {product.category}
+                </span>
+              </div>
+            )}
           </div>
+
 
           {/* Info */}
           <div className="space-y-6">

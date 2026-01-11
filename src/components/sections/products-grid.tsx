@@ -1,32 +1,6 @@
 import { useState } from 'react'
 import { Link } from '@tanstack/react-router'
-
-const products = [
-  {
-    id: "1",
-    name: "Paris",
-    description: "Embroidered bullion crest with the finest materials, showcasing intricate detail work and premium gold threading.",
-    image: "/1.jpg",
-    category: "Institutional",
-    features: ["Bullion Threading", "Premium Materials", "Custom Design"]
-  },
-  {
-    id: "2", 
-    name: "Carleton",
-    description: "A badge created for Carleton university with the utmost precision, featuring the university's official crest and colors.",
-    image: "/2.jpg",
-    category: "University",
-    features: ["University Official", "Precision Crafted", "Authentic Colors"]
-  },
-  {
-    id: "3",
-    name: "Corrections",
-    description: "Machined Badge for the Ontario Corrections Office, meeting all official specifications and durability requirements.",
-    image: "/3.jpg",
-    category: "Government",
-    features: ["Official Specification", "Durable Construction", "Government Grade"]
-  },
-]
+import { products } from '@/data/products'
 
 const categories = ["All", "Institutional", "University", "Government"]
 
@@ -68,7 +42,7 @@ export function ProductsGrid() {
             >
               <div className="relative h-64 overflow-hidden">
                 <img
-                  src={product.image}
+                  src={product.thumbnail}
                   alt={product.name}
                   className={`object-cover transition-transform duration-500 ${
                     hoveredProduct === product.id ? 'scale-110' : 'scale-100'
