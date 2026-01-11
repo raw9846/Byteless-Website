@@ -51,6 +51,9 @@ const products = [
 
 export const Route = createFileRoute('/products/$productId')({
   component: ProductPage,
+  staticData: {
+    headerText: "dark",
+  },
   loader: ({ params }) => {
     const product = products.find(p => p.id === params.productId)
     if (!product) {

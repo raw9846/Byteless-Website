@@ -1,4 +1,3 @@
-import { Typography, Card, CardBody, Chip, Button } from '@material-tailwind/react'
 import { Link } from '@tanstack/react-router'
 
 interface Product {
@@ -18,201 +17,106 @@ interface Props {
 
 export function ProductDetail({ product }: Props) {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gray-50 pt-32">
+      <div className="container-custom section-padding">
         {/* Breadcrumb */}
-        <div className="mb-8">
-          <Typography
-            className="text-blue-gray-600"
-            placeholder=""
-            onPointerEnterCapture={() => {}}
-            onPointerLeaveCapture={() => {}}
-          >
-            <Link to="/" className="hover:text-amber-600">Home</Link>
-            {' > '}
-            <Link to="/products" className="hover:text-amber-600">Products</Link>
-            {' > '}
-            <span className="text-blue-gray-900">{product.name}</span>
-          </Typography>
+        <div className="mb-8 text-sm text-gray-600">
+          <Link to="/" className="hover:text-primary-500">Home</Link>
+          <span className="mx-2">/</span>
+          <Link to="/products" className="hover:text-primary-500">Products</Link>
+          <span className="mx-2">/</span>
+          <span className="text-gray-900 font-medium">{product.name}</span>
         </div>
 
+        {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* Product img */}
+          {/* Image */}
           <div className="relative">
-            <Card 
-              className="overflow-hidden shadow-2xl"
-              placeholder=""
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
-            >
-              <div className="relative h-96 lg:h-[500px]">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="object-cover"
-                />
-                <div className="absolute top-4 left-4">
-                  <Chip
-                    value={product.category}
-                    className="bg-amber-400 text-black"
-                  />
-                </div>
-              </div>
-            </Card>
+            <div className="overflow-hidden rounded-xl shadow-lg bg-white">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-[400px] lg:h-[520px] object-cover"
+              />
+              <span className="absolute top-4 left-4 bg-primary-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                {product.category}
+              </span>
+            </div>
           </div>
 
-          {/* Product Info */}
+          {/* Info */}
           <div className="space-y-6">
             <div>
-              <Typography
-                variant="h1"
-                className="mb-4 font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-blue-gray-900"
-                placeholder=""
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
-              >
+              <h1 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                 {product.name}
-              </Typography>
-              <Typography
-                variant="lead"
-                className="text-blue-gray-600 mb-6"
-                placeholder=""
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
-              >
+              </h1>
+              <p className="text-gray-600 text-lg">
                 {product.description}
-              </Typography>
+              </p>
             </div>
 
             {/* Features */}
             <div>
-              <Typography
-                variant="h6"
-                className="mb-3 font-semibold text-blue-gray-900"
-                placeholder=""
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
-              >
+              <h3 className="font-semibold text-gray-900 mb-3">
                 Key Features
-              </Typography>
+              </h3>
               <div className="flex flex-wrap gap-2">
                 {product.features.map((feature) => (
-                  <Chip
+                  <span
                     key={feature}
-                    value={feature}
-                    variant="outlined"
-                    className="border-amber-400 text-amber-600"
-                  />
+                    className="border border-primary-500 text-primary-600 px-3 py-1 rounded-full text-sm"
+                  >
+                    {feature}
+                  </span>
                 ))}
               </div>
             </div>
 
-            {/* CTA Buttons */}
+            {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                className="bg-amber-400 text-black hover:bg-amber-500 transition-all duration-300"
-                placeholder=""
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
-              >
-                <Link to="/contact">Request Custom Quote</Link>
-              </Button>
-              <Button
-                variant="outlined"
-                size="lg"
-                className="border-blue-gray-300 text-blue-gray-700 hover:bg-blue-gray-50"
-                placeholder=""
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
-              >
-                <Link to="/products">View All Products</Link>
-              </Button>
+              <Link to="/contact" className="btn-primary">
+                Request Custom Quote
+              </Link>
+              <Link to="/products" className="btn-outline">
+                View All Products
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* Detailed Information */}
+        {/* Details */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Description */}
-          <Card 
-            className="shadow-lg"
-            placeholder=""
-            onPointerEnterCapture={() => {}}
-            onPointerLeaveCapture={() => {}}
-          >
-            <CardBody 
-              className="p-8"
-              placeholder=""
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
-            >
-              <Typography
-                variant="h5"
-                className="mb-4 font-playfair font-bold text-blue-gray-900"
-                placeholder=""
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
-              >
-                Detailed Description
-              </Typography>
-              <Typography
-                className="text-blue-gray-600 leading-relaxed"
-                placeholder=""
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
-              >
-                {product.longDescription}
-              </Typography>
-            </CardBody>
-          </Card>
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <h3 className="font-playfair text-xl font-bold text-gray-900 mb-4">
+              Detailed Description
+            </h3>
+            <p className="text-gray-600 leading-relaxed">
+              {product.longDescription}
+            </p>
+          </div>
 
-          {/* Specifications */}
-          <Card 
-            className="shadow-lg"
-            placeholder=""
-            onPointerEnterCapture={() => {}}
-            onPointerLeaveCapture={() => {}}
-          >
-            <CardBody 
-              className="p-8"
-              placeholder=""
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
-            >
-              <Typography
-                variant="h5"
-                className="mb-4 font-playfair font-bold text-blue-gray-900"
-                placeholder=""
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
-              >
-                Specifications
-              </Typography>
-              <div className="space-y-3">
-                {Object.entries(product.specifications).map(([key, value]) => (
-                  <div key={key} className="flex justify-between items-center border-b border-blue-gray-100 pb-2">
-                    <Typography
-                      className="font-medium text-blue-gray-700"
-                      placeholder=""
-                      onPointerEnterCapture={() => {}}
-                      onPointerLeaveCapture={() => {}}
-                    >
-                      {key}:
-                    </Typography>
-                    <Typography
-                      className="text-blue-gray-600"
-                      placeholder=""
-                      onPointerEnterCapture={() => {}}
-                      onPointerLeaveCapture={() => {}}
-                    >
-                      {value}
-                    </Typography>
-                  </div>
-                ))}
-              </div>
-            </CardBody>
-          </Card>
+          {/* Specs */}
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <h3 className="font-playfair text-xl font-bold text-gray-900 mb-4">
+              Specifications
+            </h3>
+            <div className="space-y-3">
+              {Object.entries(product.specifications).map(([key, value]) => (
+                <div
+                  key={key}
+                  className="flex justify-between border-b border-gray-100 pb-2 text-sm"
+                >
+                  <span className="font-medium text-gray-700">
+                    {key}
+                  </span>
+                  <span className="text-gray-600">
+                    {value}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

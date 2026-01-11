@@ -51,7 +51,7 @@ export const Footer = () => {
                 <span className="text-sm">info@alamra.com</span>
               </div>
               {/*
-              might add a real phone number
+              might add a real phone numberzzz
               <div className="flex items-center space-x-3 text-ivory/70">
                 <Phone className="w-4 h-4" />
                 <span className="text-sm">+1 (555) 123-4567</span>
