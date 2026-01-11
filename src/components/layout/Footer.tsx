@@ -1,88 +1,134 @@
-import { Link } from '@tanstack/react-router'
+import { motion } from 'framer-motion'
+import { Mail, Phone, MapPin } from 'lucide-react'
 
-export function Footer() {
+export const Footer = () => {
+  const currentYear = new Date().getFullYear()
+
+  const footerLinks = {
+    company: [
+      { name: 'About Us', href: '/about' },
+      { name: 'Our Work', href: '/work' },
+      { name: 'Contact', href: '#contact' },
+    ],
+    services: [
+      { name: 'Custom Embroidery', href: '/services/embroidery' },
+      { name: 'Badge Creation', href: '/services/badges' },
+      { name: 'Bullion Work', href: '/services/bullion' },
+    ],
+  }
+
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-navy text-ivory">
       <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Logo and Description */}
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <img 
-                src="/alamra.png" 
-                alt="Alamra Embroidery" 
-                width={50} 
-                height={50}
-                className="h-12 w-12 object-contain"
+        {/* Main Footer Content */}
+        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Brand */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="lg:col-span-2"
+          >
+            <a href="/" className="flex items-center space-x-3 mb-6">
+              <img
+                src="/alamra.png"
+                alt="Alamra"
+                width={40}
+                height={40}
+                className="w-10 h-10"
               />
-              <h3 className="font-playfair text-xl font-bold text-white">
-                Alamra Embroidery
-              </h3>
-            </div>
-            <p className="text-gray-300 leading-relaxed max-w-md">
-              Crafting exquisite custom embroidery, badges, and precision pieces 
-              with uncompromising attention to detail and quality.
+            </a>
+            
+            <p className="text-ivory/80 mb-6 max-w-md leading-relaxed">
+              Crafting exquisite embroidered pieces with traditional techniques and modern precision. 
+              Your vision, our expertise, exceptional results.
             </p>
-          </div>
+            
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3 text-ivory/70">
+                <Mail className="w-4 h-4" />
+                <span className="text-sm">info@alamra.com</span>
+              </div>
+              {/*
+              might add a real phone number
+              <div className="flex items-center space-x-3 text-ivory/70">
+                <Phone className="w-4 h-4" />
+                <span className="text-sm">+1 (555) 123-4567</span>
+              </div>*/}
+              <div className="flex items-center space-x-3 text-ivory/70">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm">Toronto, Ontario</span>
+              </div>
+            </div>
+          </motion.div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="mb-4 font-semibold text-white">
-              Quick Links
-            </h4>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-gray-300 hover:text-primary-400 transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/products" className="text-gray-300 hover:text-primary-400 transition-colors">
-                  Products
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-gray-300 hover:text-primary-400 transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-gray-300 hover:text-primary-400 transition-colors">
-                  Contact
-                </Link>
-              </li>
+          {/* Company Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="font-semibold text-gold mb-4">Company</h3>
+            <ul className="space-y-3">
+              {footerLinks.company.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-ivory/70 hover:text-gold transition-colors duration-300 text-sm"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Services */}
-          <div>
-            <h4 className="mb-4 font-semibold text-white">
-              Services
-            </h4>
-            <ul className="space-y-2">
-              <li className="text-gray-300">Custom Embroidery</li>
-              <li className="text-gray-300">Institutional Badges</li>
-              <li className="text-gray-300">University Crests</li>
-              <li className="text-gray-300">Government Insignia</li>
+          {/* Services Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="font-semibold text-gold mb-4">Services</h3>
+            <ul className="space-y-3">
+              {footerLinks.services.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-ivory/70 hover:text-gold transition-colors duration-300 text-sm"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
 
-        <hr className="my-8 border-gray-700" />
-
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} Alamra Embroidery. All rights reserved.
-          </p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <Link to="/privacy" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
+        {/* Bottom Bar */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="border-t border-ivory/20 py-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+        >
+          <div className="text-ivory/60 text-sm">
+            © 2002 - {currentYear} Alamra. All rights reserved.
+          </div>
+          
+          <div className="flex space-x-6 text-sm">
+            <a href="/privacy" className="text-ivory/60 hover:text-gold transition-colors duration-300">
               Privacy Policy
-            </Link>
-            <Link to="/terms" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
+            </a>
+            <a href="/terms" className="text-ivory/60 hover:text-gold transition-colors duration-300">
               Terms of Service
-            </Link>
+            </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   )
