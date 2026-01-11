@@ -3,8 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 import { HelmetProvider } from 'react-helmet-async'
-import './index.css'
-
+import './globals.css'
 // Create the router instance
 const router = createRouter({ routeTree })
 

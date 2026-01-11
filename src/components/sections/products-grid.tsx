@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from '@tanstack/react-router'
 
 const products = [
   {
@@ -59,7 +60,7 @@ export function ProductsGrid() {
       {/* Products Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProducts.map((product) => (
-          <a key={product.id} href={`/products/${product.id}`}>
+          <Link key={product.id} to={`/products/${product.id}`}>
             <div 
               className="card card-hover h-full flex flex-col"
               onMouseEnter={() => setHoveredProduct(product.id)}
@@ -107,7 +108,7 @@ export function ProductsGrid() {
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </div>

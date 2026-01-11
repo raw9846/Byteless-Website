@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router'
 
 export function Footer() {
   return (
@@ -31,24 +32,24 @@ export function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <a href="/" className="text-gray-300 hover:text-primary-400 transition-colors">
+                <Link to="/" className="text-gray-300 hover:text-primary-400 transition-colors">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/products" className="text-gray-300 hover:text-primary-400 transition-colors">
+                <Link to="/products" className="text-gray-300 hover:text-primary-400 transition-colors">
                   Products
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/about" className="text-gray-300 hover:text-primary-400 transition-colors">
+                <Link to="/about" className="text-gray-300 hover:text-primary-400 transition-colors">
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact" className="text-gray-300 hover:text-primary-400 transition-colors">
+                <Link to="/contact" className="text-gray-300 hover:text-primary-400 transition-colors">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -74,12 +75,12 @@ export function Footer() {
             © {new Date().getFullYear()} Alamra Embroidery. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="/privacy" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
+            <Link to="/privacy" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
               Privacy Policy
-            </a>
-            <a href="/terms" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
+            </Link>
+            <Link to="/terms" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>

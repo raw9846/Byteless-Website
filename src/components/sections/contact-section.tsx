@@ -105,7 +105,7 @@ export function ContactSection() {
                     onChange={handleChange}
                     required
                     className="input-field"
-                    placeholder="Enter your full name"
+                    placeholder="Enter your name here"
                   />
                 </div>
 
@@ -121,7 +121,7 @@ export function ContactSection() {
                     onChange={handleChange}
                     required
                     className="input-field"
-                    placeholder="Enter your email address"
+                    placeholder="Enter your email address here"
                   />
                 </div>
 

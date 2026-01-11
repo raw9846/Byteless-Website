@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { Link } from '@tanstack/react-router'
 
 const featuredProducts = [
   {
@@ -84,7 +85,7 @@ export function FeaturedWork() {
               onMouseEnter={() => setHoveredProduct(product.id)}
               onMouseLeave={() => setHoveredProduct(null)}
             >
-              <a href={`/products/${product.id}`}>
+              <Link to={`/products/${product.id}`}>
                 <div className="card card-hover">
                   {/* img Container */}
                   <div className="relative h-80 overflow-hidden">
@@ -142,7 +143,7 @@ export function FeaturedWork() {
                     </p>
                   </div>
                 </div>
-              </a>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
@@ -154,9 +155,9 @@ export function FeaturedWork() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <a href="/products" className="btn-primary text-lg">
+          <Link to="/products" className="btn-primary text-lg">
             View All Work
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

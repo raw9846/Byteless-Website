@@ -2,11 +2,19 @@
 import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-
+import { Link } from '@tanstack/react-router'
+import { useMatches } from '@tanstack/react-router'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const matches = useMatches()
+  const currentRoute = matches[matches.length - 1]
+
+  const headerText = currentRoute?.staticData?.headerText ?? 'light'
+
+  const isDarkText = headerText === 'dark'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,35 +44,35 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center justify-between py-4 md:h-16 md:py-0">
             {/* Logo */}
-            <a href="/" className="flex items-center flex-shrink-0">
+            <Link to="/" className="flex items-center flex-shrink-0">
               <img
-                src={isScrolled ? "/logo-black.png" : "/alamra.png"}
+                src={isScrolled ? "/logo-black.png" : "/logo-gold.png"}
                 alt="Alamra"
                 width={48}
                 height={48}
                 className="w-12 h-12"
               />
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
-                  className={`${isScrolled ? "text-gray-900" : "text-white"} hover:text-primary-500 font-medium transition-colors duration-300`}
+                  to={item.href}
+                  className={`${isDarkText || isScrolled ? "text-gray-900" : "text-white"} hover:text-primary-500 font-medium transition-colors duration-300`}
                   style={{ transition: 'color 0.2s ease' }}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-lg font-medium"
                 style={{ transition: 'background-color 0.2s ease' }}
               >
                 Get Quote
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -88,24 +96,24 @@ export function Header() {
               >
                 <div className="py-4 space-y-4">
                   {navItems.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="block text-gray-700 hover:text-primary-500 font-medium"
                       style={{ transition: 'color 0.2s ease' }}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
-                  <a
-                    href="/contact"
+                  <Link
+                    to="/contact"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-lg font-medium inline-block"
                     style={{ transition: 'background-color 0.2s ease' }}
                   >
                     Get Quote
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             )}

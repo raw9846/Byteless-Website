@@ -1,7 +1,8 @@
 // __root.tsx
 import { Outlet, createRootRoute } from '@tanstack/react-router'
 import { Header } from '@/components/layout/Header'
-import Footer from '@/components/Footer'
+import { Footer } from '@/components/layout/Footer'
+import { Link } from '@tanstack/react-router'
 
 export const Route = createRootRoute({
   component: Layout,
@@ -23,9 +24,7 @@ function Loading() {
 
 function NotFoundRoute(){
     return (
-    <main className="min-h-screen">
-      <Header />
-      
+    <main className="min-h-screen">      
       <section className="py-20 bg-gray-50 min-h-[60vh] flex items-center pt-32">
         <div className="container-custom section-padding text-center">
           <h1 className="mb-4 font-playfair text-6xl md:text-8xl font-bold text-gray-900">
@@ -40,18 +39,16 @@ function NotFoundRoute(){
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/" className="btn-primary">
+            <Link to="/" className="btn-primary">
               Go Home
-            </a>
-            <a href="/products" className="btn-outline">
+            </Link>
+            <Link to="/products" className="btn-outline">
               View Products
-            </a>
+            </Link>
           </div>
         </div>
       </section>
-      
-      <Footer />
-    </main>
+          </main>
   )
 }
 

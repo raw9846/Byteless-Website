@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
+import { Link } from '@tanstack/react-router'
 
 export function Hero() {
   return (
@@ -39,12 +40,12 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <a href="/products" className="btn-primary text-lg px-10 py-4">
+            <Link to="/products" className="btn-primary text-lg">
               Discover Our Work
-            </a>
-            <a href="/about" className="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-gray-900 text-lg px-10 py-4">
+            </Link>
+            <Link to="/about" className="btn-secondary text-lg">
               Our Story
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </div>
@@ -56,7 +57,7 @@ export function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1 }}
       >
-        <a href="#featured" className="flex flex-col items-center text-white/70 hover:text-primary-400 transition-colors">
+        <Link to="#featured" className="flex flex-col items-center text-white/70 hover:text-primary-400 transition-colors">
           <span className="text-sm mb-2 font-medium">Scroll to explore</span>
           <motion.div
             animate={{ y: [0, 10, 0] }}
@@ -64,7 +65,7 @@ export function Hero() {
           >
             <ChevronDownIcon className="h-6 w-6" />
           </motion.div>
-        </a>
+        </Link>
       </motion.div>
     </section>
   )

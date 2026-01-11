@@ -1,4 +1,5 @@
 import { Typography, Card, CardBody, Chip, Button } from '@material-tailwind/react'
+import { Link } from '@tanstack/react-router'
 
 interface Product {
   id: string
@@ -27,9 +28,9 @@ export function ProductDetail({ product }: Props) {
             onPointerEnterCapture={() => {}}
             onPointerLeaveCapture={() => {}}
           >
-            <a href="/" className="hover:text-amber-600">Home</a>
+            <Link to="/" className="hover:text-amber-600">Home</Link>
             {' > '}
-            <a href="/products" className="hover:text-amber-600">Products</a>
+            <Link to="/products" className="hover:text-amber-600">Products</Link>
             {' > '}
             <span className="text-blue-gray-900">{product.name}</span>
           </Typography>
@@ -115,7 +116,7 @@ export function ProductDetail({ product }: Props) {
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
-                <a href="/contact">Request Custom Quote</a>
+                <Link to="/contact">Request Custom Quote</Link>
               </Button>
               <Button
                 variant="outlined"
@@ -125,7 +126,7 @@ export function ProductDetail({ product }: Props) {
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
-                <a href="/products">View All Products</a>
+                <Link to="/products">View All Products</Link>
               </Button>
             </div>
           </div>

@@ -1,5 +1,3 @@
-import { Header } from '@/components/layout/Header'
-import { Footer } from '@/components/layout/Footer'
 import { createFileRoute } from '@tanstack/react-router'
 import { Helmet } from 'react-helmet-async'
 
@@ -15,9 +13,7 @@ function About(){
         <meta name="description" content="Learn about Alamra Embroidery's commitment to excellence in custom embroidery and precision craftsmanship." />
       </Helmet>
 
-    <main className="min-h-screen">
-      <Header />
-      
+    <main className="min-h-screen">      
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white pt-32">
         <div className="container-custom section-padding text-center">
@@ -120,8 +116,6 @@ function About(){
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
     </>
   )

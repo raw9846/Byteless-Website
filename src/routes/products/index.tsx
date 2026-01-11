@@ -3,7 +3,11 @@ import { ProductsGrid } from '@/components/sections/products-grid'
 
 export const Route = createFileRoute('/products/')({
   component: ProductsPage,
+  staticData: {
+    headerText: 'dark',
+  },
 })
+
 
 function ProductsPage() {
   return (
