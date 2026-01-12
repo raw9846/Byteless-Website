@@ -18,6 +18,10 @@ export default {
       return new Response(null, { headers: corsHeaders });
     }
 
+    if (request.method !== "POST"){
+        return env.ASSETS.fetch(request);
+    }
+
     if (!isAuthorized) {
       return new Response(JSON.stringify({ error: "Unauthorized access" }), { 
         status: 401, 
@@ -73,3 +77,4 @@ export default {
     }
   },
 };
+
