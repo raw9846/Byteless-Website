@@ -1,14 +1,18 @@
 export default {
   async fetch(request, env) {
+    const url = new URL(request.url);
     const origin = request.headers.get("Origin");
-    const clientSecret = request.headers.get("X-Alamra-Secret");
+    const isProduction = (origin === "https://alamraimporters.com") || 
+      (origin === "https://www.alamraimporters.com") || 
+      (origin === "https://alamra-website-mailer.alamraimporters.workers.dev/");    
+    // 1. ROUTING: If not the API path, just show the website
+    if (url.pathname !== "/api/send-email") {
+      return env.ASSETS.fetch(request);
+    }
 
-    const isProduction = origin === "https://alamraimporters.com" || origin === "https://www.alamraimporters.com" || origin === "https://alamra-website-mailer.alamraimporters.workers.dev/";
-
-    const isAuthorized = isProduction || (clientSecret === env.CLIENT_GATEWAY_SECRET);
-
+    // 2. CORS HEADERS
     const corsHeaders = {
-      "Access-Control-Allow-Origin": origin || "*", 
+      "Access-Control-Allow-Origin": origin || "*",
       "Access-Control-Allow-Methods": "POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type, X-Alamra-Secret",
     };
@@ -17,15 +21,9 @@ export default {
       return new Response(null, { headers: corsHeaders });
     }
 
-    if (request.method !== "POST"){
-        return env.ASSETS.fetch(request);
-    }
-
-    if (!isAuthorized) {
-      return new Response(JSON.stringify({ error: "Unauthorized access" }), { 
-        status: 401, 
-        headers: corsHeaders 
-      });
+    const clientSecret = request.headers.get("X-Alamra-Secret");
+    if (clientSecret !== env.CLIENT_GATEWAY_SECRET && !isProduction) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: corsHeaders });
     }
 
     try {
