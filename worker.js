@@ -3,8 +3,7 @@ export default {
     const origin = request.headers.get("Origin");
     const clientSecret = request.headers.get("X-Alamra-Secret");
 
-    // 1. Define allowed Production and Local origins
-    const isProduction = origin === "https://alamraimporters.com";
+    const isProduction = origin === "https://alamraimporters.com" || origin === "https://www.alamraimporters.com" || origin === "https://alamra-website-mailer.alamraimporters.workers.dev/";
 
     const isAuthorized = isProduction || (clientSecret === env.CLIENT_GATEWAY_SECRET);
 
