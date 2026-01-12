@@ -58,9 +58,9 @@ export const Footer = () => {
               </div>*/}
               <div className="flex items-center space-x-3 text-ivory/70">
                 <MapPin className="w-4 h-4" />
-                <span className="text-sm">Toronto, Ontario</span>
+                <span className="text-sm">New York, New York</span>
               </div>
-            </div>
+            </div>      
           </motion.div>
 
           {/* Company Links */}

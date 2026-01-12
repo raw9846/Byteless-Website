@@ -72,7 +72,7 @@ export function ContactSection() {
       setStatus({
         submitted: false,
         submitting: false,
-        info: { error: true, msg: 'Something went wrong. Please try again.' }
+        info: { error: true, msg: 'Something went wrong. Please try again or email us directly at info@alamraimporters.com'  }
       })
     }
   }
@@ -138,7 +138,7 @@ export function ContactSection() {
                     required
                     rows={6}
                     className="textarea-field"
-                    placeholder="Tell us about your project..."
+                    placeholder="Tell us about your request..."
                   />
                 </div>
 

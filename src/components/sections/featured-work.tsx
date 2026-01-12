@@ -20,7 +20,7 @@ const featuredProducts = [
  {
     id: "4",
     name: "Legion",
-    description: "Bullion Crest Badge for the Royal Canadian Legion",
+    description: "Bullion Crest Badge for the Royal Canadian Legion Crafted With Precision",
     longDescription: "This government-grade badge for the Ontario Corrections Office demonstrates our capability to meet stringent official requirements. Built to withstand daily professional use while maintaining a distinguished appearance, this piece undergoes rigorous quality testing to ensure it meets all government specifications.",
     images: [
       "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/centered-in-frame-web.webp",
