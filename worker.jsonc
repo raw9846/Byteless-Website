@@ -1,9 +1,9 @@
 {
   "name": "alamra-website",
   "compatibility_date": "2026-01-12",
-  "main": "worker.js",          
+  "main": "worker.js", 
   "assets": {
-    "directory": "./dist",      
+    "directory": "./dist",
     "binding": "ASSETS"
   },
   "build": {
