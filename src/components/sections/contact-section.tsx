@@ -42,7 +42,8 @@ export function ContactSection() {
       const response = await fetch('https://alamra-website-mailer.alamraimporters.workers.dev', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'X-Alamra-Secret': import.meta.env.VITE_MAIL_SECRET
         },
         body: JSON.stringify(formState)
       })
@@ -64,7 +65,7 @@ export function ContactSection() {
         setStatus({
           submitted: false,
           submitting: false,
-          info: { error: true, msg: data.error || 'Something went wrong. Please try again.' }
+          info: { error: true, msg: 'Something went wrong. Please try again or email us directly at info@alamraimporters.com' }
         })
       }
     } catch (error) {
