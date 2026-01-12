@@ -39,7 +39,7 @@ export function ContactSection() {
     setStatus({ submitted: false, submitting: true, info: { error: false, msg: null } })
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://alamra-website-mailer.alamraimporters.workers.dev', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
