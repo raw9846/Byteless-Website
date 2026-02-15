@@ -4,42 +4,25 @@ import { Link } from '@tanstack/react-router'
 
 const featuredProducts = [
   {
-    id: "1",
-    name: "Paris",
-    description: "Embroidered bullion crest with the finest materials",
-    image: "/1.jpg",
-    category: "Institutional"
+    id: "royal-canadian-legion-crest",
+    name: "Royal Canadian Legion Crest",
+    description: "Exquisite Bullion Crest Badge for the Royal Canadian Legion",
+    image: "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/centered-in-frame-web.webp",
+    category: "Bullion Crests"
   },
   {
-    id: "2", 
-    name: "Carleton",
-    description: "A badge created for Carleton university with the utmost precision",
-    image: "/2.jpg",
-    category: "University"
+    id: "fire-marshall-textured-button",
+    name: "Fire Marshall Textured Button",
+    description: "Official Fire Marshall Ontario button with distinctive textured finish",
+    image: "https://d194zinrjsggt.cloudfront.net/buttons/fire-marshall-ontario-textured/fire-marshall-edited-textured-1-compressed-1440-1440.webp",
+    category: "Buttons"
   },
- {
-    id: "4",
-    name: "Legion",
-    description: "Bullion Crest Badge for the Royal Canadian Legion Crafted With Precision",
-    longDescription: "This government-grade badge for the Ontario Corrections Office demonstrates our capability to meet stringent official requirements. Built to withstand daily professional use while maintaining a distinguished appearance, this piece undergoes rigorous quality testing to ensure it meets all government specifications.",
-    images: [
-      "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/centered-in-frame-web.webp",
-      "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/closeup-45-angle-web.webp",
-      "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/detail-centered-web.webp",
-      "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/fit-45-angle-web.webp",
-      "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/right-shoulder-side-profile-web.webp",
-      "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/slight-angle-left-chest-web.webp",
-      "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/super-close-detail-web.webp",
-    ],
-    image: "https://d194zinrjsggt.cloudfront.net/bullion-crests/royal-canadian-legion-crest/centered-in-frame-web.webp",
-    category: "Government",
-    features: ["Official Specification", "Durable Construction", "Government Grade", "Quality Tested"],
-    specifications: {
-      "Dimensions": "4\" x 2.75\"",
-      "Materials": "Heavy-duty polyester, reinforced backing",
-      "Technique": "Machine embroidered",
-      "Finish": "Reinforced edges with secure attachment system"
-    }
+  {
+    id: "carleton-crest",
+    name: "Carleton Crest",
+    description: "Bullion crest featuring precision craftsmanship and authentic detailing",
+    image: "https://d194zinrjsggt.cloudfront.net/bullion-crests/carleton-university/carleton-edited-photos-raw-1-compressed-1440-1440.webp",
+    category: "Bullion Crests"
   },
 ]
 

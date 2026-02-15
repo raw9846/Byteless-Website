@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { Link } from '@tanstack/react-router'
 import { products } from '@/data/products'
 
-const categories = ["All", "Institutional", "University", "Government"]
+// Dynamically generate categories from products
+const categories = ["All", ...Array.from(new Set(products.map(p => p.category)))]
 
 export function ProductsGrid() {
   const [selectedCategory, setSelectedCategory] = useState("All")

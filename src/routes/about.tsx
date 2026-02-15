@@ -47,10 +47,12 @@ function About(){
               </p>
             </div>
             <div className="relative h-96 bg-gray-200 rounded-lg overflow-hidden">
-              {/* You can add an image here */}
-              <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                <p>Workshop img Placeholder</p>
-              </div>
+              {/* TODO: Replace with workshop image placeholder */}
+              <img
+                src="https://d194zinrjsggt.cloudfront.net/buttons/fire-marshall-ontario-textured/fire-marshall-edited-textured-1-compressed-1440-1440.webp"
+                alt="Craftsmanship detail"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
