@@ -1,134 +1,100 @@
-import { motion } from 'framer-motion'
-import { Mail, MapPin } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
+import { Mail } from 'lucide-react'
+import { Logo } from './Logo'
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const footerLinks = {
-    company: [
-      { name: 'About Us', href: '/about' },
-      { name: 'Our Work', href: '/work' },
-      { name: 'Contact', href: '#contact' },
+    navigate: [
+      { name: 'About', href: '/about' },
+      { name: 'Portfolio', href: '/portfolio' },
+      { name: 'Services', href: '/services' },
+      { name: 'Blog', href: '/blog' },
     ],
     services: [
-      { name: 'Custom Embroidery', href: '/services/embroidery' },
-      { name: 'Badge Creation', href: '/services/badges' },
-      { name: 'Bullion Work', href: '/services/bullion' },
+      { name: 'Web Development', href: '/services' },
+      { name: 'UI / UX Design', href: '/services' },
+      { name: 'Consulting', href: '/services' },
     ],
   }
 
   return (
-    <footer className="bg-navy text-ivory">
-      <div className="container-custom section-padding">
+    <footer className="bg-navy text-cream">
+      <div className="container-custom">
         {/* Main Footer Content */}
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="lg:col-span-2"
-          >
-            <a href="/" className="flex items-center space-x-3 mb-6">
-              <img
-                src="/logo-white.webp"
-                alt="Alamra White Logo"
-                width={40}
-                height={40}
-                className="w-10 h-10"
-              />
-            </a>
-            
-            <p className="text-ivory/80 mb-6 max-w-md leading-relaxed">
-              Crafting exquisite embroidered pieces with traditional techniques and modern precision. 
-              Your vision, our expertise, exceptional results.
-            </p>
-            
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3 text-ivory/70">
-                <Mail className="w-4 h-4" />
-                <span className="text-sm">info@alamraimporters.com</span>
-              </div>
-              {/*
-              might add a real phone numberzzz
-              <div className="flex items-center space-x-3 text-ivory/70">
-                <Phone className="w-4 h-4" />
-                <span className="text-sm">+1 (555) 123-4567</span>
-              </div>*/}
-              <div className="flex items-center space-x-3 text-ivory/70">
-                <MapPin className="w-4 h-4" />
-                <span className="text-sm">New York, New York</span>
-              </div>
-            </div>      
-          </motion.div>
+          <div className="lg:col-span-2">
+            <Link to="/" className="inline-block mb-6">
+              <Logo size="md" variant="light" />
+            </Link>
 
-          {/* Company Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="font-semibold text-gold mb-4">Company</h3>
+            <p className="text-cream/70 mb-6 max-w-md leading-relaxed text-sm">
+              We design and build fast, modern digital experiences — from MVPs to
+              full product systems. Clear thinking, clean code, human touch.
+            </p>
+
+            <div className="flex items-center space-x-3 text-cream/60">
+              <Mail className="w-4 h-4 flex-shrink-0" />
+              <span className="text-sm">hello@byteless.dev</span>
+            </div>
+          </div>
+
+          {/* Navigate Links */}
+          <div>
+            <h3 className="text-cream text-xs font-semibold uppercase tracking-widest mb-4">
+              Navigate
+            </h3>
             <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
+              {footerLinks.navigate.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-ivory/70 hover:text-gold transition-colors duration-300 text-sm"
+                  <Link
+                    to={link.href}
+                    className="text-cream/60 hover:text-cream transition-colors duration-200 text-sm"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           {/* Services Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="font-semibold text-gold mb-4">Services</h3>
+          <div>
+            <h3 className="text-cream text-xs font-semibold uppercase tracking-widest mb-4">
+              Services
+            </h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-ivory/70 hover:text-gold transition-colors duration-300 text-sm"
+                  <Link
+                    to={link.href}
+                    className="text-cream/60 hover:text-cream transition-colors duration-200 text-sm"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
         </div>
 
         {/* Bottom Bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="border-t border-ivory/20 py-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
-        >
-          <div className="text-ivory/60 text-sm">
-            © 2002 - {currentYear} Alamra. All rights reserved.
+        <div className="border-t border-cream/10 py-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="text-cream/40 text-sm">
+            © {currentYear} [byte]less. All rights reserved.
           </div>
-          
+
           <div className="flex space-x-6 text-sm">
-            <a href="/privacy" className="text-ivory/60 hover:text-gold transition-colors duration-300">
+            <a href="/privacy" className="text-cream/40 hover:text-cream/70 transition-colors duration-200">
               Privacy Policy
             </a>
-            <a href="/terms" className="text-ivory/60 hover:text-gold transition-colors duration-300">
+            <a href="/terms" className="text-cream/40 hover:text-cream/70 transition-colors duration-200">
               Terms of Service
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </footer>
   )

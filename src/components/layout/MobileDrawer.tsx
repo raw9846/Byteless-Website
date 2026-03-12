@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from '@tanstack/react-router'
+import { Logo } from './Logo'
 
 interface MobileDrawerProps {
   isOpen: boolean
@@ -29,27 +30,23 @@ export function MobileDrawer({ isOpen, onClose, navItems, contactLink }: MobileD
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'tween', duration: 0.3 }}
-            className="fixed left-0 top-0 bottom-0 w-64 bg-white shadow-2xl z-50 md:hidden"
+            className="fixed left-0 top-0 bottom-0 w-64 bg-navy shadow-2xl z-50 md:hidden"
           >
             <div className="flex flex-col h-full">
               {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-gray-200">
-                <img
-                  src="/logo-black.webp"
-                  alt="Alamra"
-                  width={40}
-                  height={40}
-                  className="w-10 h-10"
-                />
+              <div className="flex items-center justify-between p-4 border-b border-cream/10">
+                <Link to="/" onClick={onClose}>
+                  <Logo size="sm" variant="light" />
+                </Link>
                 <button
                   onClick={onClose}
-                  className="p-2 text-gray-700 hover:text-primary-500 transition-colors"
+                  className="p-2 text-cream hover:opacity-60 transition-opacity"
                 >
-                  <XMarkIcon className="h-6 w-6" />
+                  <XMarkIcon className="h-5 w-5" />
                 </button>
               </div>
 
-              {/* Navigation Items */}
+              {/* Nav Items */}
               <nav className="flex-1 p-6">
                 <div className="space-y-6">
                   {navItems.map((item) => (
@@ -57,19 +54,18 @@ export function MobileDrawer({ isOpen, onClose, navItems, contactLink }: MobileD
                       key={item.name}
                       to={item.href}
                       onClick={onClose}
-                      className="block text-gray-900 hover:text-primary-500 font-medium text-lg transition-colors"
+                      className="block text-cream font-medium text-lg hover:opacity-60 transition-opacity"
                     >
                       {item.name}
                     </Link>
                   ))}
 
-                  {/* Get Quote Button - Highlighted in Orange */}
                   <Link
                     to={contactLink}
                     onClick={onClose}
-                    className="block bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-medium text-center transition-colors mt-8"
+                    className="block bg-cream text-navy px-6 py-3 rounded-lg font-medium text-center hover:bg-cream/80 transition-colors mt-8"
                   >
-                    Get Quote
+                    Book a Call
                   </Link>
                 </div>
               </nav>
