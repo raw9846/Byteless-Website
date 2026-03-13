@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { HeroSection } from '@/components/sections/hero-section'
 import { AboutSection } from '@/components/sections/about-section'
 import { ServicesSection } from '@/components/sections/services-section'
+import { PortfolioSection } from '@/components/sections/portfolio-section'
 
 export const Route = createFileRoute('/')({
   component: () => (
@@ -9,7 +10,7 @@ export const Route = createFileRoute('/')({
       <HeroSection />
       <AboutSection />
       <ServicesSection />
-      {/* Additional sections (portfolio preview, testimonials, etc.) can go here */}
+      <PortfolioSection />
     </main>
   )
 })
